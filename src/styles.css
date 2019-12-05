@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+.material-icons {
+	vertical-align: middle;
+}
+
+.nav-link {
+	color:  #FFFFFF!important;
+}
+
+.right {
+	color: blue;
+}
+
+
+.save:hover {
+	color:  #FFFFFF;
+}
+.background-theme{
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4ThWl2gZsr80crJ5ZG7wyYE80hO-4VHgL61u--LsmW5xHiJj6Lw&s');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.btn-color{
+	color:#880e4f ;
+}

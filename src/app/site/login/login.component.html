@@ -1,0 +1,47 @@
+<div class="row background-theme">
+    <div class="col-sm-4 mt-5 ml-5 mr-5 mb-5 mx-auto ">
+        <div class="card mb-5 mt-5 ">
+            <h1 class="mt-5 ml-5">Login</h1>
+
+            <!-- <div class="alert alert-info mt-5 ml-5 mr-5" *ngIf="clickedOnAdd">Please login before adding an item to cart.</div> -->
+            <div class="alert alert-danger ml-5 mr-5"
+                *ngIf="userId.touched && password.touched && !this.authService.validCredentials">Invalid UserId /
+                Incorrect Password</div>
+            <form [formGroup]="loginForm" (submit)="this.authService.authenticateUser(loginForm.value)">
+                <div class="row mt-5 ml-5 mr-5">
+                    <div class="col-12">
+                        <label for="userId">User Id</label>
+                        <input type="text" class="form-control" placeholder="Enter UserId" formControlName="userId"
+                            id="userId" required>
+                        <div class="text-danger" *ngIf="userId.touched && userId.invalid && userId.errors.required">
+                            UserId is required</div>
+                    </div>
+                </div>
+                <div class="row ml-5 mr-5">
+                    <div class="col-12 mt-5">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" placeholder="Enter Password"
+                            formControlName="password" id="password" required>
+                        <div class="text-danger"
+                            *ngIf="password.touched && password.invalid && password.errors.required">Password is
+                            required</div>
+                    </div>
+                </div>
+                <div class="row mt-5 ml-5 mr-5 mb-5">
+                    <div class="col-4">
+                        <button type="submit" class="btn signup-btn">Login</button>
+                    </div>
+                    <div class="col">
+                        <div>
+                            Don't have an account? <a class="text-primary hand ml-5" (click)="toSignupUser()">User
+                                Signup</a>
+                        </div>
+                        <div>
+                            <a class="text-primary hand ml-5" (click)="toSignupAdmin()">Admin Signup</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

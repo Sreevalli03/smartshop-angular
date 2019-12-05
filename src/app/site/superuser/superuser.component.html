@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-xs-11 mt-5 ml-5 mr-5 mb-5 mx-auto">
+        <h1>Shop Manager Details</h1>
+        <div class="card mt-5">
+            <table class="table">
+                <tr>
+                    <th>UserId</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>ContactNumber</th>
+                    <th>Status</th>
+                    <th>Response</th>
+                </tr>
+
+                <tr *ngFor="let manager of adminList">
+                    <td>{{manager.userId}}</td>
+                    <td>{{manager.firstName}}</td>
+                    <td>{{manager.lastName}}</td>
+                    <td>{{manager.age}}</td>
+                    <td>{{manager.gender}}</td>
+                    <td>{{manager.contactNumber}}</td>
+                    <td>{{manager.status}}</td>
+                    <td><button type="submit" class="btn btn-success" (click)="accept(manager)">Accept</button></td>
+                    <td><button type="submit" class="btn btn-danger" (click)="decline(manager)">Decline</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

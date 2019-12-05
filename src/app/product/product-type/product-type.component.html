@@ -1,0 +1,10 @@
+<div class="card-deck my-5">
+  <div class="row">
+    <div class="col-lg-3 col-md-6 mr-auto" *ngFor="let list of product">
+      <div class="card-body ">
+        <button type="submit" class="btn signup-btn " (click)="products(list)">{{list}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<app-product-list [type]="productList"></app-product-list>

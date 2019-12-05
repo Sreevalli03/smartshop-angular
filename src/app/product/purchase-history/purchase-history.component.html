@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-xl-11 mt-5 ml-5 mr-5 mx-auto">
+    <h2>Purchase History</h2>
+    <div class="card mt-5">
+      <!-- <input type="date" [(ngModel)]="dateKey" (input)="searchByDate()" size="10"> -->
+      <table class="table">
+        <tr>
+          <th>Purchase Id</th>
+          <th>Purchase Date</th>
+          <th>Product Code</th>
+          <th>Product Name</th>
+          <th>Quantity</th>
+          <th>Amount</th>
+        </tr>
+
+        <tr *ngFor="let option of purchaseList">
+          <td>{{option.purchaseId}}</td>
+          <td>{{option.purchaseDate}}</td>
+          <td>{{option.product.productCode}}</td>
+          <td>{{option.product.productName}}</td>
+          <td>{{option.quantity}}</td>
+          <td>{{option.product.ratePerQuantity}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

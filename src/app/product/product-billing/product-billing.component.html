@@ -1,0 +1,71 @@
+<div class="search-bar">
+  <div class="row">
+    <div class="col-xl-11 mt-3 ml-5 mr-5 ">
+      <h3 class="color">Search</h3>
+    </div>
+    <div class="col-xl-11 mt-3 ml-5 mr-5 ">
+      <form>
+        <div class="input-group md-form form-sm form-1 pl-0">
+          <div class="input-group-prepend">
+            <span class="input-group-text purple lighten-3 mb-5" id="basic-text1"><i
+                class="material-icons">shopping_cart</i></span>
+          </div>
+          <input type="search" class="form-control" name="search-bar" [(ngModel)]="searchKey" (input)="newSearch()"
+            placeholder="Search Products">
+        </div>
+      </form>
+    </div>
+    <ul *ngIf="searchKey">Click to select the item
+      <a class="dropdown-item text-primary" *ngFor="let type of filteredlist" selected="type"
+        (click)="list(type)">{{type.productName}}</a>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xl-11 mt-5 ml-5 mr-5 mx-auto">
+    <h2>User Cart</h2>
+    <div class="card mt-5">
+      <table class="table">
+        <tr>
+          <th>Product Code</th>
+          <th>Product Name</th>
+          <th>Rate per quantity</th>
+          <th>Quantity</th>
+          <th>Total</th>
+        </tr>
+
+        <tr *ngFor="let option of userList">
+          <td class="ml-5">{{option.productCode}}</td>
+          <td class="ml-5">{{option.productName}}</td>
+          <td class="ml-5">{{option.ratePerQuantity}}</td>
+          <td class="ml-5"> <button id="decrement" (click)='removeInBilling(option)'>
+              <i class="material-icons">remove</i>
+            </button>
+            <input type="text" id="quantity" name="Quantity" value="{{option.quantity}}" class="quantity" size="2" />
+            <button id="increment" (click)='addInBilling(option)' [disabled]="option.quantity==option.stockCount">
+              <i class="material-icons">add</i>
+            </button>
+            <div><small *ngIf="option.quantity==option.stockCount">Out Of Stock</small></div>
+          </td>
+          <td>{{option.quantity*option.ratePerQuantity}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{total}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div class="ml-5 mt-5 color">
+    <b>Contact Number:</b><input type="text" name="contact" id="contact" [(ngModel)]="contact" required>
+
+  </div>
+  <div class="ml-5 mb-5"> <input type="submit" class="btn signup-btn mt-5" value="Save" (click)="onSaveClick()"></div>
+</div>

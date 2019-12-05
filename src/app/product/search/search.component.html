@@ -1,0 +1,79 @@
+<div class="search-bar">
+  <div class="row">
+    <div class="col-xl-11 mt-5 ml-5 mr-5">
+      <h1 class="text-white">Search Products</h1>
+    </div>
+    <div class="col-xl-11 mt-3 ml-5 mr-5">
+      <form>
+        <div class="input-group md-form form-sm form-1 pl-0">
+          <div class="input-group-prepend">
+            <span class="input-group-text purple lighten-3 mb-5" id="basic-text1"><i
+                class="material-icons">local_grocery_store</i></span>
+          </div>
+          <input type="search" class="form-control" name="search-bar" [(ngModel)]="searchKey" (input)="search()"
+            placeholder="Search Products">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-product-type [product]="filteredProductList"></app-product-type>
+
+
+<div *ngIf="!this.productService.isCheck">
+  <div class="container-fluid mb-5">
+    <div class="card-deck">
+      <div class="col-12 col-md-6 col-lg-3" *ngFor="let product of filteredlist">
+        <div class="card">
+          <img src="{{product.productImage}}" width="100" height="200" class="card-img-top" alt="Card image" />
+          <div class="card-body">
+            <div class="row">
+
+              <label for="name">
+                <h5 id="name" class="text-primary">{{product.productName}}({{product.brand}})</h5>
+              </label> <span class="ml-auto" id="price"><label
+                  for="price">&#8377;{{product.ratePerQuantity}}</label></span>
+            </div>
+
+            <div class="row">
+              <label for="Product_Code">
+                <h6>Product Code: {{product.productCode}}</h6>
+              </label>
+            </div>
+            <div class="row">
+              <span id="category"><label for="category">
+                  <h6>Category: {{product.productType}}</h6>
+                </label></span>
+            </div>
+
+            <div class="row">
+              <label for="name">Aisle: {{product.aisle}}</label> <span class="ml-5"><label for="price">Shelf:
+                  {{product.shelf}}</label></span>
+
+              <div class="badge badge-success mb-5 mr-1 ml-3" id="active"><label for="active"
+                  *ngIf="product.stockCount !='0'"> active</label></div>
+              <div class="badge badge-danger mb-5 mr-1 ml-3" id="active"><label for="active"
+                  *ngIf="product.stockCount =='0'"> inactive</label></div>
+            </div>
+            <div class="row">
+              <i class="material-icons">timelapse</i>
+              <div id="dateofLaunch"><label for="dateofLaunch">Dt.of
+                  Manufacture:</label>
+                <span class="ml-auto"> {{product.dateOfManufacture| date}}</span></div>
+            </div>
+
+            <div class="row" *ngIf="this.authService.isAdmin">
+              <a [routerLink]="['/product-edit',product.productCode]" id="truyum-addtocart"
+                class="btn signup-btn mr-auto">
+                <i class="material-icons">edit</i> Edit </a>
+
+              <a class="btn signup-btn mr-auto text-light" (click)="onClickDelete(product.productCode)">
+                <i class="material-icons">delete_forever</i> Delete
+              </a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

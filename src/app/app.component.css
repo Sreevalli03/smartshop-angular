@@ -1,0 +1,24 @@
+/* include stylesheet for truYum */
+.material-icons.md-36 {
+    font-size: 50px;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.material-icons.other_icon {
+    line-height: 1;
+    vertical-align: middle;
+    size:5px;
+}
+.navbar_top {
+    background-color:#880e4f ;
+}
+
+.navbar_bottom {
+    background-color:#880e4f ;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+
